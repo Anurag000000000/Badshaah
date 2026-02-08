@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RUDRA BHAI ™</title>
     <style>
+        /* Pura page ka background aur look */
         body {
             margin: 0;
             padding: 0;
@@ -22,76 +23,107 @@
             width: 100%;
             max-width: 450px;
             padding: 20px;
-            background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+            /* Background par halka sa ghera (glow) effect */
+            background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
             border: 1px solid #333;
         }
 
         .header-title {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: bold;
             letter-spacing: 2px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #fff;
+            text-transform: uppercase;
+        }
+
+        .profile-pic-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 10px;
         }
 
         .profile-pic {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             border: 3px solid #f1c40f;
-            margin-bottom: 10px;
-            box-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.4);
         }
 
-        .number-60 {
-            font-size: 80px;
+        /* 30 Second Running Number Style */
+        .number-timer {
+            font-size: 90px;
             font-weight: 900;
             color: #f1c40f;
-            margin: 10px 0;
+            margin: 5px 0;
+            text-shadow: 0 0 25px rgba(241, 196, 15, 0.8);
+            font-family: 'Courier New', Courier, monospace;
         }
 
-        .stats {
+        .stats-box {
             text-align: left;
             display: inline-block;
-            margin-bottom: 30px;
+            margin: 20px 0;
+            width: 90%;
         }
 
-        .stat-item {
-            font-size: 18px;
-            margin: 15px 0;
+        .stat-line {
+            font-size: 17px;
+            margin: 12px 0;
             font-weight: bold;
             display: flex;
             align-items: center;
+            line-height: 1.4;
         }
 
-        .check-icon { color: #f1c40f; margin-right: 10px; }
+        .check-icon {
+            background: #f1c40f;
+            color: #000;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
 
+        /* Telegram Button - Blinking Effect */
         .telegram-btn {
             background-color: #f1c40f;
             color: #000;
             text-decoration: none;
             display: block;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 20px;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 22px;
             font-weight: 900;
             text-transform: uppercase;
-            animation: blink 1s infinite;
-            margin-bottom: 20px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
+            animation: pulse-blink 1.2s infinite ease-in-out;
         }
 
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; transform: scale(0.98); }
-            100% { opacity: 1; }
+        @keyframes pulse-blink {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(0.96); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
-        .footer-text {
-            font-size: 14px;
-            color: #ccc;
+        .footer-promo {
+            font-size: 15px;
+            color: #999;
+            margin-top: 10px;
         }
 
-        .footer-text span { color: #00d2ff; font-weight: bold; }
+        .promo-id {
+            color: #00d2ff;
+            font-weight: bold;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -99,30 +131,53 @@
     <div class="container">
         <div class="header-title">RUDRA BHAI ™</div>
 
-        <img src="https://via.placeholder.com/120" alt="Rudra Bhai Logo" class="profile-pic">
+        <div class="profile-pic-container">
+            <img src="https://via.placeholder.com/130/000000/f1c40f?text=RUDRA" alt="Rudra Logo" class="profile-pic">
+        </div>
 
-        <div class="number-60">60</div>
+        <div class="number-timer" id="timer">30</div>
 
-        <div class="stats">
-            <div class="stat-item">
+        <div class="stats-box">
+            <div class="stat-line">
                 <span class="check-icon">✔</span> 90/88 MATCH PASSED RECORD 🏆
             </div>
-            <div class="stat-item">
+            <div class="stat-line">
                 <span class="check-icon">✔</span> Oldest CRICKET Tipper Since 2011 🏆
-            </div>
-            <div class="stat-item">
+</div>
+            <div class="stat-line">
                 <span class="check-icon">✔</span> 44/42 BBL MATCHES PASSED RECORD 🏆
             </div>
         </div>
 
-        <a href="https://t.me/your_link" class="telegram-btn">
+        <a href="https://t.me/YOUR_CHANNEL_USERNAME" class="telegram-btn">
             SUBSCRIBE RUDRA BHAI<br>™ TELEGRAM
         </a>
 
-        <div class="footer-text">
-            For paid promotion - <span>DANGER9902</span>
+        <div class="footer-promo">
+            For paid promotion - <span class="promo-id">DANGER9902</span>
         </div>
     </div>
 
+    <script>
+        let timeLeft = 30; // 30 se shuru hoga
+        const timerDisplay = document.getElementById('timer');
+
+        function startCountdown() {
+            setInterval(() => {
+                if (timeLeft <= 0) {
+                    timeLeft = 30; // 0 hote hi wapas 30 par reset ho jayega
+                } else {
+                    timeLeft--;
+                }
+                
+                // Agar number 10 se chota hai toh 09, 08 aise dikhayega
+                timerDisplay.innerText = timeLeft < 10 ? "0" + timeLeft : timeLeft;
+            }, 1000); // Har 1000ms (1 second) mein chalega
+        }
+
+        // Timer shuru karein
+        startCountdown();
+    </script>
+
 </body>
-</html>
+</html>    
