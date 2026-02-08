@@ -1,79 +1,126 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rudra - Profile</title>
+    <title>RUDRA BHAI ™</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
             margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
         }
 
         .container {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            width: 90%;
-            max-width: 400px;
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+            background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+            border: 1px solid #333;
         }
 
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 3px solid #00d2ff;
-            margin-bottom: 1rem;
-        }
-
-        h1 { margin: 10px 0; font-size: 24px; }
-        p { color: #ccc; margin-bottom: 20px; }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .btn {
-            background: #00d2ff;
-            color: #1a1a2e;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 10px;
+        .header-title {
+            font-size: 28px;
             font-weight: bold;
-            transition: 0.3s;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #fff;
         }
 
-        .btn:hover {
-            background: #ffffff;
-            transform: translateY(-3px);
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #f1c40f;
+            margin-bottom: 10px;
+            box-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
         }
+
+        .number-60 {
+            font-size: 80px;
+            font-weight: 900;
+            color: #f1c40f;
+            margin: 10px 0;
+        }
+
+        .stats {
+            text-align: left;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .stat-item {
+            font-size: 18px;
+            margin: 15px 0;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .check-icon { color: #f1c40f; margin-right: 10px; }
+
+        .telegram-btn {
+            background-color: #f1c40f;
+            color: #000;
+            text-decoration: none;
+            display: block;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            animation: blink 1s infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; transform: scale(0.98); }
+            100% { opacity: 1; }
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .footer-text span { color: #00d2ff; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="https://via.placeholder.com/100" alt="Profile" class="profile-img">
-        
-        <h1>Rudra</h1>
-        <p>Developer & Enthusiast</p>
+        <div class="header-title">RUDRA BHAI ™</div>
 
-        <div class="links">
-            <a href="#" class="btn">Instagram</a>
-            <a href="#" class="btn">Telegram</a>
-            <a href="#" class="btn">GitHub</a>
-            <a href="#" class="btn">Contact Me</a>
+        <img src="https://via.placeholder.com/120" alt="Rudra Bhai Logo" class="profile-pic">
+
+        <div class="number-60">60</div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="check-icon">✔</span> 90/88 MATCH PASSED RECORD 🏆
+            </div>
+            <div class="stat-item">
+                <span class="check-icon">✔</span> Oldest CRICKET Tipper Since 2011 🏆
+            </div>
+            <div class="stat-item">
+                <span class="check-icon">✔</span> 44/42 BBL MATCHES PASSED RECORD 🏆
+            </div>
+        </div>
+
+        <a href="https://t.me/your_link" class="telegram-btn">
+            SUBSCRIBE RUDRA BHAI<br>™ TELEGRAM
+        </a>
+
+        <div class="footer-text">
+            For paid promotion - <span>DANGER9902</span>
         </div>
     </div>
 
